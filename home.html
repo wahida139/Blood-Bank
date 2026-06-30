@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClinicHub Portal</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF -8">
+<meta name="viewport" content="width=device -width , initial -scale=1.0">
+<title>Responsive Health Portal Dashboard</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-    <h1>ClinicHub Portal</h1>
-</header>
-
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Doctors</a>
-    <a href="#">Patients</a>
-    <a href="#">Appointments</a>
+<header class="app-header">
+<div class="brand">HealthSuite</div>
+<nav class="app-nav">
+<a href="#">Overview</a>
+<a href="#">Patients</a>
+<a href="#">Settings</a>
 </nav>
-
-<main>
-    <section class="card">
-        <h2>Welcome</h2>
-        <p>This is a sample ClinicHub Portal homepage.</p>
-    </section>
+</header>
+<main class="dashboard -wrapper">
+<section class="banner -section">
+<h1>Welcome , Administrator</h1>
+<p>Here is your clinical performance index summary for today.</p>
+</section>
+<!-- CSS Grid Container -->
+<section class="stats -grid">
+<div class="stat-card">
+<h3>Total Registrations</h3>
+<p class="stat-number">1,245</p>
+</div>
+<div class="stat-card">
+<h3>Active Consultations</h3>
+<p class="stat-number">42</p>
+</div>
+<div class="stat-card">
+<h3>Pending Actions</h3>
+<p class="stat-number">12</p>
+</div>
+</section>
 </main>
-
-<footer>
-    <p>&copy; 2026 ClinicHub Portal</p>
+<footer class="app-footer">
+<p>&copy; 2026 HealthSuite Enterprise Systems. Secure SSL Encrypted
+Connection.</p>
 </footer>
-
 </body>
 </html>
