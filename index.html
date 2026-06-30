@@ -1,44 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF -8">
-<meta name="viewport" content="width=device -width , initial -scale=1.0">
-<title>Responsive Health Portal Dashboard</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedHope | Blood Bank & Donor Management System</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icon Packs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<header class="app-header">
-<div class="brand">HealthSuite</div>
-<nav class="app-nav">
-<a href="#">Overview</a>
-<a href="#">Patients</a>
-<a href="#">Settings</a>
-</nav>
-</header>
-<main class="dashboard -wrapper">
-<section class="banner -section">
-<h1>Welcome , Administrator</h1>
-<p>Here is your clinical performance index summary for today.</p>
-</section>
-<!-- CSS Grid Container -->
-<section class="stats -grid">
-<div class="stat-card">
-<h3>Total Registrations</h3>
-<p class="stat-number">1,245</p>
-</div>
-<div class="stat-card">
-<h3>Active Consultations</h3>
-<p class="stat-number">42</p>
-</div>
-<div class="stat-card">
-<h3>Pending Actions</h3>
-<p class="stat-number">12</p>
-</div>
-</section>
-</main>
-<footer class="app-footer">
-<p>&copy; 2026 HealthSuite Enterprise Systems. Secure SSL Encrypted
-Connection.</p>
-</footer>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">
+        <i class="fas fa-tint"></i> RedHope
+      </a>
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#find-donors" class="nav-link">Find Donors</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div id="header-actions-wrapper">
+          <!-- Auth actions rendered dynamically -->
+        </div>
+        <button class="btn-theme" onclick="toggleTheme()" aria-label="Toggle Theme Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="section active">
+    <div class="container">
+      <div class="hero">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <h1>Every Drop Counts, <span>Donate Blood</span> & Save Lives</h1>
+            <p>Your small act of kindness can give someone a second chance at life. Connect with local volunteers instantly or register as a donor to join our life-saving community.</p>
+            <div class="hero-cta">
+              <a href="#find-donors" class="btn btn-primary"><i class="fas fa-search"></i> Find a Donor</a>
+              <a href="#login" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Join as Donor</a>
+            </div>
+          </div>
+          <div class="hero-image-wrapper">
+            <div class="hero-blob"></div>
+            <div class="hero-card glass">
+              <i class="fas fa-heartbeat"></i>
+              <h3>Save a Life Today</h3>
+              <p style="font-size:0.9rem; color:var(--text-muted); margin-top:10px;">One donation can save up to three lives. Start making a difference now.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Counters -->
+      <div class="stats-grid">
+        <div class="stat-card glass">
+          <div class="stat-num" id="stat-donors">0</div>
+          <div class="stat-label">Registered Donors</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-num" id="stat-success">0</div>
+          <div class="stat-label">Successful Matches</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-num" id="stat-pending">0</div>
+          <div class="stat-label">Active Requests</div>
+        </div>
+      </div>
+
+      <!-- High Professional Doctors Info / Mini Blog -->
+      <div class="title-center" style="margin-top: 60px;">
+        <h2>Featured Donors</h2>
+        <p>Meet some of our voluntary donors who are actively saving lives in our community.</p>
+      </div>
+
+      <div class="grid-3" id="home-donor-cards">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND DONORS SECTION -->
+  <section id="find-donors" class="section">
+    <!-- Rendered dynamically in app.js -->
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="title-center">
+        <h2>About RedHope</h2>
+        <p>Learn more about our mission and how we operate to make blood search seamless.</p>
+      </div>
+      <div class="grid-2 about-box">
+        <div class="about-card glass">
+          <h3 style="color:var(--primary); margin-bottom:15px;"><i class="fas fa-bullseye"></i> Our Mission</h3>
+          <p id="about-dynamic-text" style="color:var(--text-muted);">
+            <!-- Managed dynamically in app.js -->
+          </p>
+        </div>
+        <div class="about-card glass">
+          <h3 style="color:var(--secondary); margin-bottom:15px;"><i class="fas fa-hand-holding-heart"></i> Why Donate Blood?</h3>
+          <ul style="color:var(--text-muted); display:flex; flex-direction:column; gap:12px;">
+            <li><i class="fas fa-check-circle" style="color:var(--success);"></i> Stimulates blood cell production, keeping your body healthy.</li>
+            <li><i class="fas fa-check-circle" style="color:var(--success);"></i> Helps maintain optimal cardiovascular health.</li>
+            <li><i class="fas fa-check-circle" style="color:var(--success);"></i> Provides an immediate, free, mini-health checkup.</li>
+            <li><i class="fas fa-check-circle" style="color:var(--success);"></i> Most importantly: You are actively giving hope to someone in emergency care.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="title-center">
+        <h2>Get in Touch</h2>
+        <p>Have questions, suggestions, or want to partner with us? Leave us a message below.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass" style="padding:40px;">
+          <h3 style="color:var(--primary); margin-bottom:20px;">Send Us a Message</h3>
+          <form onsubmit="handleContactFormSubmit(event)">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Phone Number (Optional)</label>
+              <input type="tel" id="contact-phone" class="form-control" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message Details</label>
+              <textarea id="contact-message" class="form-control" rows="4" placeholder="Type your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
+          </form>
+        </div>
+
+        <div id="contact-details-panel">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN / SIGNUP SECTION -->
+  <section id="login" class="section">
+    <!-- Rendered dynamically in app.js -->
+  </section>
+
+  <!-- DONOR DASHBOARD SECTION -->
+  <section id="donor-dashboard" class="section">
+    <!-- Rendered dynamically in app.js -->
+  </section>
+
+  <!-- ADMIN DASHBOARD SECTION -->
+  <section id="admin-dashboard" class="section">
+    <!-- Rendered dynamically in app.js -->
+  </section>
+
+  <!-- REQUEST BLOOD MODAL OVERLAY -->
+  <div class="modal-overlay" id="request-modal-overlay">
+    <div class="modal glass">
+      <div class="modal-header">
+        <h3 id="req-donor-display-name" style="color:var(--primary);">Send Blood Request</h3>
+        <button class="modal-close" onclick="closeRequestModal()">&times;</button>
+      </div>
+      <form id="blood-request-form" onsubmit="handleBloodRequestSubmit(event)">
+        <input type="hidden" id="req-donor-id">
+        <div class="form-group">
+          <label for="req-patient-name">Patient Name</label>
+          <input type="text" id="req-patient-name" class="form-control" placeholder="Full name of patient" required>
+        </div>
+        <div class="form-group">
+          <label for="req-email">Your Email Address</label>
+          <input type="email" id="req-email" class="form-control" placeholder="Your contact email" required>
+        </div>
+        <div class="form-group">
+          <label for="req-phone">Your Contact Mobile</label>
+          <input type="tel" id="req-phone" class="form-control" placeholder="Mobile phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="req-relation">Relationship to Patient</label>
+          <select id="req-relation" class="form-control" required>
+            <option value="Self">Self</option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="Brother">Brother</option>
+            <option value="Sister">Sister</option>
+            <option value="Spouse">Spouse</option>
+            <option value="Friend">Friend</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="req-message">Requirements / Hospital Details</label>
+          <textarea id="req-message" class="form-control" rows="3" placeholder="e.g. Urgent need at Red Cross Hospital, Room 304..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;"><i class="fas fa-paper-plane"></i> Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 RedHope System. All rights reserved.</p>
+      <p style="font-size:0.85rem; opacity:0.8;">Developed with HTML, CSS, and JS (localStorage State Database).</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
 </body>
 </html>
